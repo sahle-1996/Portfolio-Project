@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sahle Goitom - Web Developer Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Smooth animations */
+    .transition-transform {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .hover\:scale-105:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Card flip effect */
+    .project-card {
+      perspective: 1000px;
+      background-color: transparent;
+    }
+
+    .project-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .project-card:hover .project-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .project-card-front,
+    .project-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-card-back {
+      transform: rotateY(180deg);
+    }
+
+    /* Custom colors */
+    .bg-gradient-custom {
+      background: linear-gradient(90deg, rgba(72, 126, 247, 1) 0%, rgba(255, 108, 217, 1) 100%);
+    }
+
+    .text-shadow {
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Animated button */
+    .btn-animated {
+      background-color: white;
+      color: #3b82f6;
+      font-weight: bold;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-animated:hover {
+      background-color: #3b82f6;
+      color: white;
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+  <!-- Header -->
+  <header class="bg-white shadow-md">
+    <nav class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold text-gray-800">Sahle Goitom - Web Developer Portfolio</a>
+        <div class="hidden md:flex space-x-6">
+          <a href="#home" class="text-gray-800 hover:text-blue-600">Home</a>
+          <a href="#about" class="text-gray-800 hover:text-blue-600">About</a>
+          <a href="#projects" class="text-gray-800 hover:text-blue-600">Projects</a>
+          <a href="#contact" class="text-gray-800 hover:text-blue-600">Contact</a>
+        </div>
+        <button class="md:hidden focus:outline-none" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+    <div class="hidden md:hidden bg-white" id="mobile-menu">
+      <a href="#home" class="block py-2 px-4 text-sm hover:bg-gray-200">Home</a>
+      <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-200">About</a>
+      <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-200">Projects</a>
+      <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-200">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="py-20 bg-gradient-custom text-white text-center">
+    <div class="container mx-auto">
+      <img src="Sahle.jpg" alt="Sahle Goitom"
+        class="rounded-full w-32 h-32 mx-auto mb-6 border-4 border-white shadow-lg">
+      <h1 class="text-5xl font-bold text-shadow mb-2">Sahle Goitom</h1>
+      <p class="text-2xl mb-8">Web Developer & Designer</p>
+      <p class="text-lg mb-8 max-w-2xl mx-auto">Passionate about creating beautiful, functional, and user-friendly
+        websites. Specialized in HTML, CSS, JavaScript, and Python.</p>
+      <a href="#contact" class="btn-animated">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
+      <div class="flex flex-col md:flex-row items-center justify-between space-y-12 md:space-y-0">
+        <div class="md:w-1/2 space-y-6">
+          <h3 class="text-2xl font-semibold">My Journey</h3>
+          <p class="text-gray-600">I started my journey in web development during my college years, where I discovered
+            my passion for creating digital experiences. Since then, I've been constantly learning and improving my
+            skills to stay at the forefront of web technologies.</p>
+          <p class="text-gray-600">With a strong foundation in HTML, CSS, and JavaScript, I've expanded my expertise to
+            include modern frameworks and tools like React, Node.js, and Python. My goal is to create web solutions that
+            not only look great but also provide seamless user experiences.</p>
+        </div>
+        <div class="md:w-1/2">
+          <h3 class="text-2xl font-semibold mb-6">Skills</h3>
+          <div class="space-y-4">
+            <!-- Skill progress bars -->
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="font-medium text-blue-700">HTML/CSS</span>
+                <span class="text-sm text-blue-700">90%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
+              </div>
+            </div><br>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="font-medium text-blue-700">JavaScript</span>
+                <span class="text-sm text-blue-700">85%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 85%"></div>
+              </div>
+            </div><br>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="font-medium text-blue-700">Python</span>
+                <span class="text-sm text-blue-700">80%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 80%"></div>
+              </div>
+            </div><br>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="font-medium text-blue-700">Bootstrap</span>
+                <span class="text-sm text-blue-700">80%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 80%"></div>
+              </div><br>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-medium text-blue-700">React</span>
+                  <span class="text-sm text-blue-700">85%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-blue-600 h-2.5 rounded-full" style="width: 88%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-gradient-to-b from-gray-100 to-gray-200">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">My Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <!-- Project 1 -->
+        <div class="project-card h-96">
+          <div class="project-card-inner">
+            <div class="project-card-front bg-white">
+              <img src="images/News.png" alt="E-commerce Website" class="w-full h-48 object-cover rounded-t-lg">
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">Dynamic News App - A Real-Time News Search Platform</h3>
+                <p class="text-gray-600">Explore trending news articles and stay updated with ease.</p>
+              </div>
+            </div>
+            <div class="project-card-back bg-blue-600 text-white p-6 flex flex-col justify-between">
+              <div>
+                <h3 class="text-2xl font-semibold mb-4">Dynamic News App</h3>
+                <p class="mb-4">A responsive news app built with React, Tailwind CSS, and Vite, using NewsAPI for real-time article searches. Features include a dynamic search bar with debouncing, error handling, and a sleek, user-friendly interface. Showcases expertise in React hooks, API integration with Axios, and modern UI design with Tailwind CSS.</p>
+              </div>
+              <div class="flex justify-between mt-4">
+                <a href="http://localhost:5173/React-project/"
+                  class="bg-white text-blue-600 py-2 px-4 rounded hover:bg-blue-100 transition duration-300">Live
+                  Demo</a>
+                <a href="https://github.com/sahle-1996/React-project"
+                  class="bg-white text-blue-600 py-2 px-4 rounded hover:bg-blue-100 transition duration-300">Source
+                  Code</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="project-card h-96">
+          <div class="project-card-inner">
+            <div class="project-card-front bg-white">
+              <img src="Bella.png" alt="Account Login page" class="w-full h-48 object-cover rounded-t-lg">
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">Bella Weather App - Your Ultimate Weather Companion</h3>
+                <p class="text-gray-600">Real-Time Weather Updates with a Seamless User Experience</p>
+              </div>
+            </div>
+            <div class="project-card-back bg-green-600 text-white p-6 flex flex-col justify-between">
+              <div>
+                <h3 class="text-2xl font-semibold mb-4">Bella Weather App</h3>
+                <p class="mb-4">A beautifully designed weather app featuring a responsive layout, real-time weather updates, and location-based forecasts. Built with HTML, Tailwind CSS, and Alpine.js, this project showcases a modern and user-friendly interface. Includes a dynamic hero section, key features, and interactive navigation for an enhanced user experience.</p>
+              </div>
+              <div class="flex justify-between mt-4">
+                <a href="https://sahle-1996.github.io/Bella-Weather-app/"
+                  class="bg-white text-green-600 py-2 px-4 rounded hover:bg-green-100 transition duration-300">Live
+                  Demo</a>
+                <a href="https://github.com/sahle-1996/Bella-Weather-app"
+                  class="bg-white text-green-600 py-2 px-4 rounded hover:bg-green-100 transition duration-300">Source
+                  Code</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="project-card h-96">
+          <div class="project-card-inner">
+            <div class="project-card-front bg-white">
+              <img src="images/5d.png" alt="Weather Dashboard" class="w-full h-48 object-cover rounded-t-lg">
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">A homepage for accessories store</h3>
+                <p class="text-gray-600">a homepage for an accessories store with various sections and
+                  features.</p>
+              </div>
+            </div>
+            <div class="project-card-back bg-purple-600 text-white p-6 flex flex-col justify-between">
+              <div>
+                <h3 class="text-2xl font-semibold mb-4">A homepage for accessories store</h3>
+                <p class="mb-4"> a homepage for an accessories store with various sections and
+                  features. It includes a header with a centered title, a logo image, and navigation links to different
+                  pages. The main content is divided into two sections: a promotional banner offering a discount with a
+                  video, and a content section with three columns highlighting online ordering, opening hours, and new
+                  sales. Each column contains images and text.</p>
+              </div>
+              <div class="flex justify-between mt-4">
+                <a href="https://sahle-1996.github.io/Accessories-Hompage-Portfolio-project/"
+                  class="bg-white text-purple-600 py-2 px-4 rounded hover:bg-purple-100 transition duration-300">Live
+                  Demo</a>
+                <a href="https://github.com/sahle-1996"
+                  class="bg-white text-purple-600 py-2 px-4 rounded hover:bg-purple-100 transition duration-300">Source
+                  Code</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Contact Me</h2>
+      <div
+        class="max-w-lg mx-auto bg-white shadow-xl rounded-lg overflow-hidden transition-transform hover:scale-105 hover:shadow-2xl transform duration-300">
+        <div class="px-8 py-10">
+          <form action="#" method="POST" class="space-y-8">
+            <!-- Name Input -->
+            <div class="relative">
+              <input type="text" id="name" name="name"
+                class="peer w-full p-4 bg-green-50 border-2 border-green-300 rounded-lg focus:outline-none focus:border-green-500 focus:bg-white transition-all duration-300 placeholder-transparent"
+                placeholder="Enter your name">
+              <span
+                class="absolute left-4 top-4 text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm peer-focus:text-green-500 transition-all duration-300">Enter
+                your name</span>
+            </div>
+
+            <!-- Email Input -->
+            <div class="relative">
+              <input type="email" id="email" name="email"
+                class="peer w-full p-4 bg-green-50 border-2 border-green-300 rounded-lg focus:outline-none focus:border-green-500 focus:bg-white transition-all duration-300 placeholder-transparent"
+                placeholder="Enter your email">
+              <span
+                class="absolute left-4 top-4 text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm peer-focus:text-green-500 transition-all duration-300">Enter
+                your email</span>
+            </div>
+
+            <!-- Message Input -->
+            <div class="relative">
+              <textarea id="message" name="message" rows="4"
+                class="peer w-full p-4 bg-green-50 border-2 border-green-300 rounded-lg focus:outline-none focus:border-green-500 focus:bg-white transition-all duration-300 placeholder-transparent"
+                placeholder="Enter your message"></textarea>
+              <span
+                class="absolute left-4 top-4 text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm peer-focus:text-green-500 transition-all duration-300">Enter
+                your message</span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit"
+              class="w-full bg-gradient-to-r from-green-500 to-green-700 text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-300 transition-all duration-300">
+              Send Message
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-6 text-center">
+      <p>&copy; 2024 Sahle Goitom. All rights reserved.</p>
+      <div class="contact-info mt-5">
+        <p><strong>Email:</strong> sahlesiumgoitom@gmail.com</p><br>
+        <p><strong>Phone:</strong> +251940479746</p><br>
+        <div class="social-icons">
+          <a href="https://github.com/sahle-1996" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/sahle-goitom-57451b1a2/" target="_blank"><i
+              class="fab fa-linkedin"></i></a>
+          <a href="https://x.com/Sahle35961712?t=WWZuYwnNTEltjLxw_XTe4w&s=09" target="_blank"><i
+              class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CSS -->
+    <style>
+      .social-icons a {
+        margin: 0 10px;
+        /* Adjust the space here */
+        color: inherit;
+        /* Ensure the icons inherit the current text color */
+      }
+    </style>
+
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+
+</html>
